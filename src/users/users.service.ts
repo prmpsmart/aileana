@@ -8,13 +8,11 @@ export class UsersService {
   constructor(@InjectRepository(User) private repo: Repository<User>) {}
 
   async create(email: string, passwordHash: string) {
-    // 1️⃣ Check if user already exists
     const existing = await this.repo.findOne({ where: { email } });
     if (existing) {
       throw new BadRequestException('Email is already registered');
     }
 
-    // 2️⃣ Save new user
     return this.repo.save({ email, passwordHash });
   }
 
