@@ -12,7 +12,6 @@ export class CallSession {
   @Column()
   calleeId: string;
 
-  // Change this to string for SQLite
   @Column({ type: 'text', default: CallStatus.INITIATED })
   status: CallStatus;
 
