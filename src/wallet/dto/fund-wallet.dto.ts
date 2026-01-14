@@ -7,3 +7,17 @@ export class FundWalletDto {
   @Min(1)
   amount: number;
 }
+
+
+export class FundWalletResponseDto {
+  @ApiProperty({ example: true })
+  success: boolean;
+
+  @ApiProperty({ example: 'OP_1673784823' })
+  reference: string;
+}
+
+export class WalletBalanceDto {
+  @ApiProperty({ example: 12000 })
+  balance: number;
+}
